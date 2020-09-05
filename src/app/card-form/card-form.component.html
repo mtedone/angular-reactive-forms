@@ -1,5 +1,20 @@
-<form [formGroup]="cardForm">
-  <app-input [control]="cardForm.controls.name"></app-input>
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()">
+  <app-input [control]="cardForm.controls.name" label="Name"></app-input>
+  <app-input
+    [control]="cardForm.controls.cardNumber"
+    label="Card Number"
+  ></app-input>
+  <app-input
+    [control]="cardForm.controls.expiration"
+    label="Expiration (MM/YY)"
+  ></app-input>
+  <app-input
+    [control]="cardForm.controls.securityCode"
+    label="Security Code"
+  ></app-input>
+  <button type="submit" [disabled]="!cardForm.valid" class="button is-primary">
+    Submit
+  </button>
 </form>
 
 <hr />
